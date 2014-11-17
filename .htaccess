@@ -1,5 +1,5 @@
 IndexIgnore *.aux *.toc *.dvi *.log *.elc *.o *.pyc cgi-bin
 IndexOptions +HTMLTable
-HeaderName /dir-index.html
+HeaderName /assets/dir-index.html
 #ReadmeName /var/www/indexesREADME.html
 Options +Includes
