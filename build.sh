@@ -25,4 +25,9 @@ cat $HEADER $SRC_PATH/comex_content.html $FOOTER > $OUT
 sed -i 's/PROJECTS_ACTIVE/active/g' $OUT
 sed -i 's/TITLE/Jack Doan - Comet Exoskeleton/g' $OUT
 
-
+OUT="scpi.html"
+echo Building $OUT
+rm $OUT
+cat $HEADER $SRC_PATH/scpi_content.html $FOOTER > $OUT
+sed -i 's/PROJECTS_ACTIVE/active/g' $OUT
+sed -i 's/TITLE/Jack Doan - SCPI Tutorial/g' $OUT
