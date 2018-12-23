@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./assets/ico/favicon.ico">
+
+    <title></title>
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/theme.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	    	<span class="sr-only">Toggle navigation</span>
+	    	<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+	  	</button>
+	 	<a class="navbar-brand" href="#">Jack Doan</a>
+	</div>
+	<div class="navbar-collapse collapse"><ul class="nav navbar-nav">
+	    	<li class="HOME_ACTIVE"><a href="/">Home</a></li>
+	    	<li><a href="mailto:contact@jackdoan.com">Contact</a></li>
+        	<li><a href="/assets/pdf/JackDoanResume.pdf">Résumé</a></li>
+        	<li class="dropdown active">
+	      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+		<li class="dropdown-header">Robotics</li>
+		<li><a href="/blender.html">The Blender</a></li>
+        <li><a href="https://www.youtube.com/channel/UClGu04I9xxNYcLN9llDUbRQ">Blender Videos</a></li>
+		<li><a href="/comex.html">Comet Exoskeleton</a></li>
+        <li><a href="https://www.youtube.com/channel/UCGCffAhqLlb1pd3oE7YIftg">LocoLab Videos</a></li>
+		<li class="dropdown-header">Software</li>
+		<li><a href="https://github.com/JackDoan">GitHub</a></li>
+		<li><a href="/scpi.html">SCPI Instrumentation</a></li>
+	    </ul></li>
+	</ul></div><!--- end nav-collapse -->
+      </div>
+    </div>
+    <div class="container theme-showcase" role="main">
+<h1>Use of SCPI to Control Bench Instruments</h1>
+<p>
+While working at <a href="LOCOLAB">LocoLab</a>, I had the pleasure of using a variety of <a href="http://www.keysight.com/en/pc-856751/n5700-and-n8700-series-dc-system-power-supplies-gpib-single-output?cc=US&lc=eng">Keysight N5700 series</a> 
+power supplies.</p> 
+<img src="http://s7.images.keysight.com/is/image/Keysight/COLL-856751-HI?wid=596" /> 
+<p>I had one at my desk for testing motor controllers and charging batteries, and another for human-subject tests of the powered exoskeleton we were developing<!--LINK-->. These power supplies are incredible instruments, with only two flaws: their front panel is a bit of a chore to use, and they scream like a jet engine. With the goal of eliminating these two pain-points, I set out with the goal of writing a program to control them remotely, so that I could mount them <i>slightly</i> further from my ears.
+</p>
+<p>
+Thankfully, the N5700's provide a variety of remote-control methods, including:
+	<ul>
+		<li>Standard Commands for Programmable Instruments (SCPI) over USB</li>
+		<li>SCPI over LAN</li>
+		<li>SCPI over GPIB</li>
+		<li>A Java applet, served on a built-in web server</li>
+		<li>A simple analog programming interface</li>
+	</ul>
+I wanted to control this supply with my PC, so I opted for SCPI over USB. I gave the Java applet a fair shake, but it just felt too clunky for something safety-critical, like human-subject tests.
+
+SCPI (pronounced 'skippy') sort of resembles a shell. It's an ASCII language with a standard set of structured commands relevant to the instrument in question. In fact, as long as you stick the the IEEE 488.2 set of instructions, SCPI code written for one instruemnt will run on all instruments of the same type!
+
+Here are a couple quick examples:</p>
+<ul>
+	<li>Get the measured output voltage: MEASure:SCALar:VOLTage?</li>
+	<li>Get the measured output current: MEASure:SCALar:CURRent?</li>
+	<li>Turn the output on:		 OUTPut:STATe ON</li>
+	<li>Set output voltage to 10V:	 SOURce:VOLTage:LEVel 10</li>
+</ul><p>
+Anything in lowercase is just included for clarity; OUTP:STAT ON does exactly the same thing as OUTPut:STATe ON.
+
+Thankfully, Keysight did the hard work of building a LabVIEW library of the most commonly used commands (available 
+<a href="http://www.keysight.com/main/software.jspx?ckey=1629756&lc=eng&cc=US&nid=-11143.0.00&id=1629756">here</a>).
+I just had to assemble the blocks into a usable program, and bolt on some application-specific input checking, to keep myself from frying what I was working on. </p>
+<div class="panel panel-primary">
+	<div class="panel-heading">LabVIEW Front Panel & Block Diagram</div>
+	<div class="panel-body"><a href="/assets/img/24v.png"><img width="100%" src=/assets/img/24v.png /></a></div>
+</div>
+<hr><footer>
+<div class="row"><div class="col-lg-12">
+<p>Copyright &copy; Jack Doan</p>
+</div></div></footer>
+</div><!-- /.container -->     
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/ga.js"></script>    
+</body>
+</html>
