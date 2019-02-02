@@ -1,56 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="./assets/ico/favicon.ico">
-
-    <title>Jack Doan - Corsair LL120 Fans - Teardown and Reverse Engineering</title>
-
-    <link href="./assets/css/bootstrap.css" rel="stylesheet">
-    <link href="./assets/css/theme.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body role="document">
-
-    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-    <div class="container">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	    	<span class="sr-only">Toggle navigation</span>
-	    	<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-	  	</button>
-	 	<a class="navbar-brand" href="#">Jack Doan</a>
-	</div>
-	<div class="navbar-collapse collapse"><ul class="nav navbar-nav">
-	    	<li class="HOME_ACTIVE"><a href="/">Home</a></li>
-	    	<li><a href="mailto:contact@jackdoan.com">Contact</a></li>
-        	<li><a href="/assets/pdf/JackDoanResume.pdf">Résumé</a></li>
-        	<li class="dropdown active">
-	      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
-	    <ul class="dropdown-menu">
-		<li class="dropdown-header">Robotics</li>
-		<li><a href="/blender.html">The Blender</a></li>
-        <li><a href="https://www.youtube.com/channel/UClGu04I9xxNYcLN9llDUbRQ">Blender Videos</a></li>
-		<li><a href="/comex.html">Comet Exoskeleton</a></li>
-        <li><a href="https://www.youtube.com/channel/UCGCffAhqLlb1pd3oE7YIftg">LocoLab Videos</a></li>
-		<li class="dropdown-header">Software</li>
-		<li><a href="https://github.com/JackDoan">GitHub</a></li>
-		<li><a href="/scpi.html">SCPI Instrumentation</a></li>
-		<li><a href="./ll120.html">Corsair LL120</a></li>
-	    </ul></li>
-	</ul></div><!--- end nav-collapse -->
-      </div>
-    </div>
-    <div class="container theme-showcase" role="main">
 <h1>Corsair LL120 Fans: Teardown and Reverse Engineering</h1>
 
 <div class="row align-items-center">
@@ -125,14 +72,3 @@ Anything in lowercase is just included for clarity; OUTP:STAT ON does exactly th
 Thankfully, Keysight did the hard work of building a LabVIEW library of the most commonly used commands (available 
 <a href="http://www.keysight.com/main/software.jspx?ckey=1629756&lc=eng&cc=US&nid=-11143.0.00&id=1629756">here</a>).
 I just had to assemble the blocks into a usable program, and bolt on some application-specific input checking, to keep myself from frying what I was working on. </p>
-</div>
-<hr><footer>
-<div class="row"><div class="col-lg-12">
-<p>Copyright &copy; Jack Doan</p>
-</div></div></footer>
-</div><!-- /.container -->     
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
-</body>
-</html>
